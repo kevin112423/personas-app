@@ -8,3 +8,4 @@ Route::get('/', function () {
 });
 
 Route::get('/comunas', [ComunaController::class, 'index']);
+Route::post('/comunas', [ComunaController::class, 'store']);

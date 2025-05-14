@@ -3,15 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Comuna;
+Use Illuminate\Support\Facades\DB;
 
 class ComunaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
     public function index()
     {
-        //
+        $comunas = Comuna::all();
+        $comunas = DB::table ('tb_comuna')
+        ->join('tb_municipio', 'tb_comuna.muni_codi','=','tb_municipio.muni_codi')
+        ->select('tb_comuna.*',"tb_municipio.muni_nomb")
+        ->get();
+        return view('comuna.index', ['comunas' => $comunas]);
     }
 
     /**
