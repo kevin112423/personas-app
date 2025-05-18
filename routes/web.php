@@ -20,3 +20,7 @@ Route::post('/municipios', [MunicipioController::class, 'store']) ->name('munici
 Route::get('/municipios/create', [MunicipioController::class, 'create']) ->name('municipios.create');
 Route::delete ('/municipios/{municipio}', [MunicipioController::class,'destroy'])->name('municipios.destroy');
 Route::put ('/paises/{pais}', [PaisController::class,'update'])->name('paises.update');
+Route::get ('/municipios/{municipio}/edit', [MunicipioController::class,'edit'])->name('municipios.edit');
+
+
+Route::get('/departamentos', [DepartamentoController::class, 'index']) ->name('departamentos.index');
